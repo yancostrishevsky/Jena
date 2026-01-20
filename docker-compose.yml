@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - .:/workspace
+      - maven-cache:/root/.m2
+    working_dir: /workspace
+    command: bash
+    stdin_open: true
+    tty: true
+
+  cli:
+    build:
+      context: .
+      dockerfile: Dockerfile.cli-jena
+    volumes:
+      - ./data:/data
+      - ./queries:/queries
+    working_dir: /data
+    stdin_open: true
+    tty: true
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    volumes:
+      - ./data:/app/data
+      - ./queries:/app/queries
+      - ./rules:/app/rules
+      - ./out:/app/out
+
+volumes:
+  maven-cache:

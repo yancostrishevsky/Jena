@@ -1,0 +1,19 @@
+@prefix : <http://example.org/wardrobe#> .
+
+[windyRule:
+  (?s :weather :Windy)
+  ->
+  (?s :shouldWear :Sweater)
+]
+
+[rainyRule:
+  (?s :weather :Rainy)
+  ->
+  (?s :shouldWear :Jacket)
+]
+
+[coldAnxietyRule:
+  (?s :mood :Anxiety) (?s :weather :Cold)
+  ->
+  (?s :shouldWear :WarmClothing)
+]

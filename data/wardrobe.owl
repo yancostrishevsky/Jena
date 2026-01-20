@@ -1,0 +1,39 @@
+@prefix : <http://example.org/wardrobe#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Clothing a rdfs:Class .
+:WarmClothing a rdfs:Class ;
+    rdfs:subClassOf :Clothing .
+:Sweater a rdfs:Class ;
+    rdfs:subClassOf :WarmClothing .
+:Jacket a rdfs:Class ;
+    rdfs:subClassOf :WarmClothing .
+:TShirt a rdfs:Class ;
+    rdfs:subClassOf :Clothing .
+:Scarf a rdfs:Class ;
+    rdfs:subClassOf :WarmClothing .
+:Color a rdfs:Class .
+:Weather a rdfs:Class .
+:Mood a rdfs:Class .
+:Situation a rdfs:Class .
+
+:hasColor a rdf:Property ;
+    rdfs:domain :Clothing ;
+    rdfs:range :Color .
+
+:suitableForWeather a rdf:Property ;
+    rdfs:domain :Clothing ;
+    rdfs:range :Weather .
+
+:weather a rdf:Property ;
+    rdfs:domain :Situation ;
+    rdfs:range :Weather .
+
+:mood a rdf:Property ;
+    rdfs:domain :Situation ;
+    rdfs:range :Mood .
+
+:shouldWear a rdf:Property ;
+    rdfs:domain :Situation ;
+    rdfs:range :Clothing .

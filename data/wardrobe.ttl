@@ -1,0 +1,55 @@
+@prefix : <http://example.org/wardrobe#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Clothing a rdfs:Class .
+:WarmClothing a rdfs:Class ;
+    rdfs:subClassOf :Clothing .
+:Sweater a rdfs:Class ;
+    rdfs:subClassOf :WarmClothing .
+:Jacket a rdfs:Class ;
+    rdfs:subClassOf :WarmClothing .
+:TShirt a rdfs:Class ;
+    rdfs:subClassOf :Clothing .
+:Scarf a rdfs:Class ;
+    rdfs:subClassOf :WarmClothing .
+:Color a rdfs:Class .
+:Weather a rdfs:Class .
+:Mood a rdfs:Class .
+:Situation a rdfs:Class .
+
+:hasColor a rdf:Property .
+:suitableForWeather a rdf:Property .
+:weather a rdf:Property .
+:mood a rdf:Property .
+:shouldWear a rdf:Property .
+
+:Red a :Color .
+:Blue a :Color .
+:Green a :Color .
+:Rainy a :Weather .
+:Windy a :Weather .
+:Cold a :Weather .
+:Sunny a :Weather .
+:Happy a :Mood .
+:Anxiety a :Mood .
+
+:RedSweater a :Sweater, :Clothing ;
+    :hasColor :Red ;
+    :suitableForWeather :Cold, :Windy .
+
+:BlueJacket a :Jacket, :Clothing ;
+    :hasColor :Blue ;
+    :suitableForWeather :Rainy .
+
+:GreenTShirt a :TShirt, :Clothing ;
+    :hasColor :Green ;
+    :suitableForWeather :Sunny .
+
+:GrayScarf a :Scarf, :Clothing ;
+    :hasColor :Blue ;
+    :suitableForWeather :Cold .
+
+:Today a :Situation ;
+    :weather :Windy, :Rainy, :Cold ;
+    :mood :Anxiety .

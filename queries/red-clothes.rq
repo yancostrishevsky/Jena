@@ -1,0 +1,6 @@
+PREFIX : <http://example.org/wardrobe#>
+
+SELECT ?item WHERE {
+  ?item a :Clothing ;
+        :hasColor :Red .
+}

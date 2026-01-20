@@ -1,0 +1,19 @@
+ARG JENA_VERSION=5.6.0
+FROM eclipse-temurin:21-jre
+
+ARG JENA_VERSION
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends curl ca-certificates tar \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p /opt \
+    && curl -fsSL "https://downloads.apache.org/jena/binaries/apache-jena-${JENA_VERSION}.tar.gz" \
+    | tar -xz -C /opt
+
+ENV JENA_HOME=/opt/apache-jena-${JENA_VERSION}
+ENV PATH="$JENA_HOME/bin:$PATH"
+
+WORKDIR /data
+
+CMD ["bash"]

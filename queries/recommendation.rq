@@ -1,0 +1,5 @@
+PREFIX : <http://example.org/wardrobe#>
+
+SELECT ?context ?item WHERE {
+  ?context :shouldWear ?item .
+}
